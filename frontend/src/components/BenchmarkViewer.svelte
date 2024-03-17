@@ -4,7 +4,7 @@
     let recentRunsData = [];
   
     onMount(async () => {
-      const response = await fetch('http://localhost:3000/benchmarkGroups');
+      const response = await fetch(import.meta.env.VITE_BENCHMARK_GROUPS_URL);
       const responseData = await response.json();
       recentRunsData = responseData.map(group => {
         let recentRuns = group.results.runs.map(({ prompt, response, blockTimestamp, score }) => ({

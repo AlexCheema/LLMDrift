@@ -11,7 +11,7 @@
     let benchmarkGroupsData = [];
   
     onMount(async () => {
-      const response = await fetch('http://localhost:3000/benchmarkGroups');
+      const response = await fetch(import.meta.env.VITE_BENCHMARK_GROUPS_URL);
       const responseData = await response.json();
       benchmarkGroupsData = responseData.map(group => {
         let accuraciesByCluster = calculateAccuracies(group, clusterOption);
